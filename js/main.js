@@ -1,57 +1,3 @@
-const ID_PHOTO = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24,
-  25,
-];
-const URL_PHOTO = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24,
-  25,
-];
 const DESCRIPTION_PHOTO = [
   'Лучшее фото',
   'Самое лучшее фото',
@@ -92,21 +38,18 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-// const getRandomArrayElement = (elements) => {
-//   const index = getRandomPositiveInteger(1, 25);
-//   return (elements.includes(index)) ? getRandomArrayElement() : elements.push(index), (index < elements.length - 1);
-// };
+const checkStringLength = (string, length) => string.length <= length;
 
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-const createPOST = () => ({
-  id: getRandomArrayElement(ID_PHOTO),
-  url: `photos/${ getRandomArrayElement(URL_PHOTO) }.jpg`,
+const createPost = (index) => ({
+  id: index,
+  url: `photos/${index}.jpg`,
   description: getRandomArrayElement(DESCRIPTION_PHOTO),
   likes: getRandomPositiveInteger(15, 200),
   comments: getRandomPositiveInteger(0, 200),
 });
 
-const similarPOST = Array.from({length: SIMILAR_PHOTO_COUNT}, createPOST);
+const similarPost = Array.from({length: SIMILAR_PHOTO_COUNT}, (_, index) => createPost(index + 1));
 
-similarPOST();
+checkStringLength(1, 140);
