@@ -1,2 +1,1 @@
-
-
+import './picture.js';
