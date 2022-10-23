@@ -13,8 +13,8 @@ similarPosts.forEach(({url, comments, likes}) => {
   postElement.querySelector('.picture__img').scr = url;
   postElement.querySelector('.picture__comments').textContent = comments;
   postElement.querySelector('.picture__likes').textContent = likes;
-  similarListFragment.appendChild(postElement);
+  similarListFragment.append(postElement);
 });
 
-similarPostsTemplate.appendChild(similarListFragment);
+similarPostsTemplate.append(similarListFragment);
 
