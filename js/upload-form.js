@@ -1,3 +1,5 @@
+/* eslint no-use-before-define: 0 */
+
 import {isEscapeKey} from './utils.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
@@ -24,12 +26,10 @@ const hideModal = () => {
   document.removeEventListener('keydown', onEscKeydown);
 };
 
-function onEscKeydown(evt) {
-  if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    hideModal();
-  }
-}
+const onEscKeydown = (evt) => {if (isEscapeKey(evt)) {
+  evt.preventDefault();
+  hideModal();
+}};
 
 uploadFile.addEventListener('change', () => {
   showModal();
@@ -40,6 +40,7 @@ closeButton.addEventListener('click', () => {
 });
 
 uploadForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
+  if (!pristine.validate()) {
+    evt.preventDefault();
+  }
 });
