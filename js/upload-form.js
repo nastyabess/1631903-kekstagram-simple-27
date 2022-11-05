@@ -1,6 +1,8 @@
 /* eslint no-use-before-define: 0 */
 
 import {isEscapeKey} from './utils.js';
+import {resetScale} from './img-scale.js';
+import {updateSlider} from './slider.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadOverlay = document.querySelector('.img-upload__overlay');
@@ -14,6 +16,7 @@ const pristine = new Pristine(uploadForm, {
 }, true);
 
 const showModal = () => {
+  resetScale();
   uploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown', onEscKeydown);
@@ -21,6 +24,7 @@ const showModal = () => {
 
 const hideModal = () => {
   uploadForm.reset();
+  updateSlider();
   uploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscKeydown);
