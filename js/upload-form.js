@@ -30,10 +30,11 @@ const hideModal = () => {
   document.removeEventListener('keydown', onEscKeydown);
 };
 
-const onEscKeydown = (evt) => {if (isEscapeKey(evt)) {
-  evt.preventDefault();
-  hideModal();
-}};
+const onEscKeydown = (evt) => {
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    hideModal();
+  }};
 
 uploadFile.addEventListener('change', () => {
   showModal();
