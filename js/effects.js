@@ -57,7 +57,7 @@ const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
 
 const onFormChange = (evt) => {
-  if (evt.target.matches('input[type="radio"]')) {
+  if (!evt.target.classList.contains('.effects__radio')) {
     return;
   }
   chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
@@ -68,5 +68,3 @@ const onFormChange = (evt) => {
 uploadForm.addEventListener('change', onFormChange);
 
 export {chosenEffect, DEFAULT_EFFECT};
-
-
