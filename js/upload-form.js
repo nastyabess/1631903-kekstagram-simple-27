@@ -2,7 +2,7 @@
 
 import {isEscapeKey} from './utils.js';
 import {resetScale} from './img-scale.js';
-// import {updateSlider} from './slider.js';
+import {resetEffects} from './effects.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadOverlay = document.querySelector('.img-upload__overlay');
@@ -24,7 +24,7 @@ const showModal = () => {
 
 const hideModal = () => {
   uploadForm.reset();
-  // updateSlider();
+  resetEffects();
   uploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscKeydown);
