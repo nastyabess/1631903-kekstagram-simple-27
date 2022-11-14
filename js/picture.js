@@ -1,12 +1,8 @@
-import {createPosts} from './data.js';
-
 const similarPostsTemplate = document.querySelector('#picture')
   .content
   .querySelector('.picture');
 
-const initializePosts = () => {
-  const similarPosts = createPosts();
-
+const initializePosts = (similarPosts) => {
   const similarListFragment = document.createDocumentFragment();
 
   similarPosts.forEach(({url, comments, likes}) => {
