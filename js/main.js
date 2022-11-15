@@ -10,5 +10,3 @@ getData((photo) => {
 });
 
 setUserFormSubmit(showSuccessMessage, showErrorMessage);
-
-setUserFormSubmit(showSuccessMessage, showErrorMessage);
