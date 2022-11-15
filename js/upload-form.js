@@ -36,7 +36,6 @@ const hideModal = () => {
 const onEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    hideModal();
   }};
 
 uploadFile.addEventListener('change', () => {
@@ -79,4 +78,4 @@ const setUserFormSubmit = (onSuccess) => {
   });
 };
 
-export {setUserFormSubmit};
+export {setUserFormSubmit, hideModal};

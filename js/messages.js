@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import {isEscapeKey} from './utils.js';
+import {hideModal} from './upload-form.js';
 
 const successMessageTemplate = document.querySelector('#success')
   .content
@@ -22,20 +23,23 @@ const onMessageEscKeydown = (evt) => {
   }
 };
 
-const showSuccessMessage = () => {
-  const isSuccessMessage = successMessageTemplate.cloneNode(true);
+const actionsMessage = () => {
   document.addEventListener('keydown', onMessageEscKeydown);
   document.addEventListener('click', onOverlayClick);
-  bodyElement.append(isSuccessMessage);
   bodyElement.style.overflow = 'hidden';
+};
+
+const showSuccessMessage = () => {
+  const isSuccessMessage = successMessageTemplate.cloneNode(true);
+  bodyElement.append(isSuccessMessage);
+  actionsMessage();
+  hideModal();
 };
 
 const showErrorMessage = () => {
   const isErrorMessage = errorMessageTemplate.cloneNode(true);
-  document.addEventListener('keydown', onMessageEscKeydown);
-  document.addEventListener('click', onOverlayClick);
   bodyElement.append(isErrorMessage);
-  bodyElement.style.overflow = 'hidden';
+  actionsMessage();
 };
 
 const hideMessage = () => {
