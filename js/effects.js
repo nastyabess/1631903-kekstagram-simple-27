@@ -105,7 +105,11 @@ const onFormChange = (evt) => {
   updateSlider();
 };
 
+<<<<<<< HEAD
 const onSliderUpdate = () => {
+=======
+const OnSliderUpdate = () => {
+>>>>>>> 93b803626ee345a9cac0e298c8fd99359a82092f
   uploadImage.style.filter = 'none';
   effectLevel.value = '';
   if (isDefault()) {
@@ -123,6 +127,10 @@ const resetEffects = () => {
 
 updateSlider();
 uploadForm.addEventListener('change', onFormChange);
+<<<<<<< HEAD
 sliderElement.noUiSlider.on('update', onSliderUpdate);
+=======
+sliderElement.noUiSlider.on('update', OnSliderUpdate);
+>>>>>>> 93b803626ee345a9cac0e298c8fd99359a82092f
 
 export {resetEffects};
